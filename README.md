@@ -1,17 +1,18 @@
-# WinterPetCare – Pet Care in Winter
+# PawMart – 🐕 Pet Adoption & Supply Portal — “PawMart”
 
-A responsive React-based winter pet-care web application designed to help pet owners protect, monitor, and care for their pets during cold seasons.
+PawMart is a community-driven platform where pet owners, breeders, and shops can list pets for adoption or sell pet-related products (food, toys, accessories, etc.). Buyers and adopters can browse, contact, and order directly.
+
 
 ## 🚀 Live Demo
 
-**Surge    Link:** *http://p9-winter-pet-care.surge.sh/*
-**Firebase Link:** *https://winter-pet-care-b12.web.app*
+**Surge Link:** *http://p10-winter-pet-care.surge.sh/*
+
 
 ---
 
 ## 📌 Project Overview
 
-**WinterPetCare** provides useful resources and services for taking better care of pets in winter. The platform showcases:
+**PawMart** provides useful resources and services for taking better care of pets in winter. The platform showcases:
 
 * Winter pet-care tips
 * Essential products
@@ -19,7 +20,27 @@ A responsive React-based winter pet-care web application designed to help pet ow
 * Dynamic card-based UI
 * Fully responsive layout
 
-This project was created as part of **Assignment-09 (Category: Rose)**.
+## 🧩 Layout Structure
+
+### Navbar
+Before Login:
+Left: Logo + Website Name
+Middle: Home | Pets & Supplies
+Right: Login | Register
+After Login:
+Left: Logo + Website Name
+Middle: Home | Pets & Supplies | Add Listing | My Listings | My Orders
+Right: Profile Avatar | Logout
+
+### Main Section
+Dynamic routing with React Router — content changes based on route navigation.
+
+### Footer
+Include:
+Logo / Site Name
+Short Description: “PawMart connects local pet owners and buyers for adoption and pet care products.”
+Copyright
+Useful Links (Home, Contact, Terms)
 
 ---
 
@@ -145,7 +166,7 @@ firebase deploy
 ## 🙌 Credits
 
 * Developer: **S.S. Abu Nayeem**
-* Assignment Category: **Rose**
+* Category: **B12-A10_category-0016**
 
 ---
 
