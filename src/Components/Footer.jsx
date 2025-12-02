@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className="footer sm:footer-horizontal bg-[#3D3B40] text-white p-10">
             <aside className='pt-8'>
                 <div className='bg-linear-to-r from-cyan-300 via-blue-600 to-sky-300 bg-clip-text text-transparent'>
-                    <a className="text-2xl lg:text-3xl font-bold">WinterPetCare</a>
+                    <a className="text-2xl lg:text-3xl font-bold">PawMart</a>
                 </div>
                 <p>
                     Providing reliable Sensitive Protection for pet

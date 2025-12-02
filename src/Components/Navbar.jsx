@@ -32,7 +32,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className='bg-linear-to-r from-cyan-300 via-white to-sky-400 bg-clip-text text-transparent'>
-                        <Link to={'/'} className="btn btn-ghost hover:btn-primary text-xl md:text-3xl font-bold">WinterPetCare</Link>
+                        <Link to={'/'} className="btn btn-ghost hover:btn-primary text-xl md:text-3xl font-bold">PawMart</Link>
                     </div>
                 </div>
 
