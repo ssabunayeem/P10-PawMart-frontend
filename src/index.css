@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+body {
+    background: #F8EDFF;
+}
+
+h2 {
+    color: #525CEB;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #dcdce7 !important;
+}
