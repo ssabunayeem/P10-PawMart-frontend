@@ -33,13 +33,19 @@ const Navbar = () => {
                             <li><Link to={'/add-service'}>Add Service</Link></li>
                         </ul>
                     </div>
-                    <div className='bg-linear-to-r from-cyan-300 via-white to-sky-400 bg-clip-text text-transparent'>
-                        <Link to={'/'} className="btn btn-ghost btn-block hover:btn-primary text-xl md:text-3xl font-bold py-5 px-7 md:px-2">
-                            <img className='w-6 md:w-8 rounded-full -rotate-35' src={paw} alt="" />
-                            <img className='w-6 md:w-8 rounded-full -rotate-35' src={paw} alt="" />
-                            PawMart
-                        </Link>
+
+                    <div className='bg-[#1e6069ad] rounded-xl hover:scale-105 transition-all duration-300 ease-in-out'>
+                        <div className='bg-linear-to-r from-cyan-300 via-white to-cyan-300 bg-clip-text 
+                        text-transparent shadow-2xl rounded-2xl'>
+
+                            <Link to={'/'} className="btn btn-ghost btn-block hover:btn-primary text-xl md:text-3xl font-bold py-5 px-7 md:px-2 rounded-xl">
+                                <img className='w-6 md:w-8 rounded-full -rotate-35' src={paw} alt="" />
+                                <img className='w-6 md:w-8 rounded-full -rotate-35' src={paw} alt="" />
+                                PawMart
+                            </Link>
+                        </div>
                     </div>
+
                 </div>
 
 
@@ -55,7 +61,8 @@ const Navbar = () => {
 
                 {
                     user && <div className="navbar-end">
-                        <button onClick={handleSignOut} className="btn btn-ghost hover:btn-primary shadow-none border-0 text-white text-xl">
+                        <button onClick={handleSignOut} className="btn btn-ghost hover:btn-primary shadow-none border-0
+                         text-white text-xl">
                             <PiSignInBold className='text-2xl rotate-180' />
                             Logout
                         </button>
@@ -64,7 +71,8 @@ const Navbar = () => {
 
                 {
                     !user && <div className="navbar-end">
-                        <Link to={'/login'} className="btn btn-ghost hover:btn-primary shadow-none border-0 text-white text-xl">
+                        <Link to={'/login'} className="btn btn-ghost hover:btn-primary 
+                            shadow-none border-0 text-white text-xl">
                             <PiSignInBold className='text-2xl' />
                             Login
                         </Link>
