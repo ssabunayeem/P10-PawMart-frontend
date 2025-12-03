@@ -29,6 +29,7 @@ const Navbar = () => {
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/services'>Services</Link></li>
                             <li><Link to={'/profile'}>My Profile</Link></li>
+                            <li><Link to={'/add-service'}>Add Service</Link></li>
                         </ul>
                     </div>
                     <div className='bg-linear-to-r from-cyan-300 via-white to-sky-400 bg-clip-text text-transparent'>
@@ -38,10 +39,11 @@ const Navbar = () => {
 
 
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 space-x-10">
+                    <ul className="menu menu-horizontal px-1 space-x-5">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/services'>Services</Link></li>
                         <li><Link to={'/profile'}>My Profile</Link></li>
+                        <li><Link to={'/add-service'}>Add Service</Link></li>
                     </ul>
                 </div>
 
