@@ -40,7 +40,6 @@ const Navbar = () => {
 
                             <Link to={'/'} className="btn btn-ghost btn-block hover:btn-primary text-xl md:text-3xl font-bold py-5 px-7 md:px-2 rounded-xl">
                                 <img className='w-6 md:w-8 rounded-full -rotate-35' src={paw} alt="" />
-                                <img className='w-6 md:w-8 rounded-full -rotate-35' src={paw} alt="" />
                                 PawMart
                             </Link>
                         </div>

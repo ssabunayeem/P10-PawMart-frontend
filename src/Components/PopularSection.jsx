@@ -41,7 +41,7 @@ const PopularSection = () => {
                                 <p>{service?.description}</p>
 
                                 <div className='flex justify-evenly font-semibold my-2'>
-                                    <p>Price: {service?.price}</p>
+                                    <p>Price: {service?.price} $</p>
                                     <p className='text-right'>Rating: {service?.rating}</p>
                                 </div>
 

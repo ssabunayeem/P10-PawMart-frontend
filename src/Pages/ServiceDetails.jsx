@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 const ServiceDetails = () => {
 
     const [services, setServices] = useState([]);
-    const [service, setService] = useState({});
+    // const [service, setService] = useState({});
     const { myId } = useParams();
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const ServiceDetails = () => {
                     <p>Category : {findResult?.category}</p>
                     <p>Provider Name: {findResult?.providerName}</p>
                     <p>Provider Email: {findResult?.providerEmail}</p>
-                    <p>Price: {findResult?.price}</p>
+                    <p>Price: {findResult?.price} $</p>
                     <p>Rating: {findResult?.rating}</p>
                 </div>
             </div>

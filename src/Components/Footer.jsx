@@ -10,8 +10,7 @@ const Footer = () => {
                 <div className='bg-linear-to-r from-cyan-300 via-blue-600 to-sky-300 bg-clip-text text-transparent  mt-5'>
                     <a className="text-3xl lg:text-4xl font-bold">
                         <div className='flex items-center'>
-                            <img className='w-12 rounded-full -rotate-35' src={paw} alt="" />
-                            <img className='w-12 rounded-full -rotate-35 mr-2' src={paw} alt="" />
+                            <img className='w-12 rounded-full -rotate-35 mr-1' src={paw} alt="" />
                             PawMart
                         </div>
                     </a>
