@@ -1,11 +1,51 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../Provider/AuthProvider';
+import axios from 'axios';
 
 const AddService = () => {
+
+
+    const { user } = useContext(AuthContext)
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const category = form.category.value;
+        const price = form.price.value;
+        const location = form.location.value;
+        const description = form.description.value;
+        const image = form.image.value;
+        const date = form.date.value;
+        const email = form.email.value;
+
+        const formData = {
+            name,
+            category,
+            price,
+            location,
+            description,
+            image,
+            date,
+            email,
+        }
+
+        console.log(formData);
+
+        axios.post('http://localhost:3000/services', formData)
+            .then(res => {
+                console.log(res);
+            })
+
+
+    };
+
     return (
         <div className="max-w-xl mx-auto shadow-2xl p-6 md:my-5 rounded-lg">
             <h2 className="text-2xl font-bold mb-4 text-center">Add New Service / Product</h2>
 
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
 
                 {/* Product / Pet Name */}
                 <div>
@@ -103,10 +143,11 @@ const AddService = () => {
                 <div>
                     <label className="font-semibold">Email (Your Account)</label>
                     <input
+                        value={user?.email}
                         type="email"
                         name="email"
                         readOnly
-                        className="w-full border p-2 rounded mt-1 bg-gray-100"
+                        className="w-full border p-2 rounded mt-1 bg-gray-200"
                     />
                 </div>
 
