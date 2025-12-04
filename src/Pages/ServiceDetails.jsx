@@ -3,35 +3,46 @@ import { useParams } from 'react-router';
 
 const ServiceDetails = () => {
 
-    const [services, setServices] = useState([]);
+    const [service, setService] = useState([]);
     // const [service, setService] = useState({});
     const { myId } = useParams();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('/services.json')
+        fetch(`http://localhost:3000/services/${myId}`)
             .then(res => res.json())
-            .then(data => setServices(data))
+            .then(data => {
+                setService(data)
+                setLoading(false);
+            })
             .catch(err => console.log(err))
-    }, [])
+    }, [myId])
 
-    const findResult = services.find(service => service.serviceId == myId);
-    console.log(findResult);
+    console.log("3000", service);
+
+
+
+    if (loading) {
+        return (<div className='flex justify-center items-center min-h-screen'>
+            <progress className="progress w-56"></progress>
+        </div>);
+    }
 
 
 
     return (
         <div className='flex flex-col justify-between items-center'>
             <div className='flex flex-col lg:flex-row md:gap-10 justify-between items-center my-5 '>
-                <img className='w-[800px] h-[400px] md:h-[800px] object-cover rounded-2xl' src={findResult?.image} alt="" />
+                <img className='w-[800px] h-[400px] md:h-[800px] object-cover rounded-2xl' src={service?.image} alt="" />
 
                 <div className="card-body font-semibold my-2  text-lg text-gray-500">
-                    <h2 className="card-title text-3xl">{findResult?.serviceName}</h2>
-                    <p className='text-gray-500'>{findResult?.description}</p>
-                    <p>Category : {findResult?.category}</p>
-                    <p>Provider Name: {findResult?.providerName}</p>
-                    <p>Provider Email: {findResult?.providerEmail}</p>
-                    <p>Price: {findResult?.price} $</p>
-                    <p>Rating: {findResult?.rating}</p>
+                    <h2 className="card-title text-3xl">{service?.name}</h2>
+                    <p className='text-gray-500'>{service?.description}</p>
+                    <p>Category : {service?.category}</p>
+                    <p>Location: {service?.location}</p>
+                    <p>Provider Email: {service?.email}</p>
+                    <p>Price: {service?.price} $</p>
+                    <p>Date: {service?.date}</p>
                 </div>
             </div>
         </div>

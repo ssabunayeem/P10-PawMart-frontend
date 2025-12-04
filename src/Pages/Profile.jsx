@@ -35,17 +35,20 @@ const Profile = () => {
 
 
     return (
-        <div className='flex flex-col justify-center items-center space-y-2 my-15'>
-            <div className="avatar">
-                <div className="w-24 rounded-full">
-                    <img src={user?.photoURL} />
+        <div className='flex flex-col justify-center items-center space-y-2 min-h-[70vh] animate__animated animate__backInDown'>
+
+            <div className='flex flex-col justify-center items-center space-y-2 animate__animated animate__backInUp'>
+                <div className="avatar">
+                    <div className="w-24 rounded-full">
+                        <img src={user?.photoURL} />
+                    </div>
                 </div>
+
+                <p className='font-bold text-2xl m-0'>{user?.displayName}</p>
+                <p className='text-xl'>{user?.email}</p>
+                <button onClick={handleOpenForm} className=" btn btn-primary bg-[#525CEB] text-xl">Update Profile</button>
+
             </div>
-
-            <p className='font-bold text-2xl m-0'>{user?.displayName}</p>
-            <p className='text-xl'>{user?.email}</p>
-            <button onClick={handleOpenForm} className=" btn btn-primary bg-[#525CEB] text-xl">Update Profile</button>
-
             <div>
                 {
                     isOpen && (

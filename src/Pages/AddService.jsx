@@ -13,7 +13,7 @@ const AddService = () => {
         const form = e.target;
         const name = form.name.value;
         const category = form.category.value;
-        const price = form.price.value;
+        const price = parseInt(form.price.value);
         const location = form.location.value;
         const description = form.description.value;
         const image = form.image.value;
