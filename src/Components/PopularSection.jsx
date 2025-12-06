@@ -37,11 +37,12 @@ const PopularSection = () => {
 
                             <div className="card-body">
 
-                                <h2 className="card-title">{service?.name}</h2>
-                                <p>{service?.description}</p>
+                                <h2 className="card-title font-bold">{service?.name}</h2>
+                                <p className='text-gray-500'>{service?.description}</p>
+                                <p className='font-bold'>Location: {service?.location}</p>
 
                                 <div className='flex justify-evenly font-semibold my-2'>
-                                    <p>Price: {service?.price} $</p>
+                                    <p>Price: {service?.price} $ </p>
                                     <p className='text-right'>Date: {service?.date}</p>
                                 </div>
 

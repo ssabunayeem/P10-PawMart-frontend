@@ -31,6 +31,7 @@ const Navbar = () => {
                             <li><Link to='/services'>Services</Link></li>
                             <li><Link to={'/profile'}>My Profile</Link></li>
                             <li><Link to={'/add-service'}>Add Service</Link></li>
+                            <li><Link to={'/my-services'}>My Services</Link></li>
                         </ul>
                     </div>
 
@@ -54,6 +55,7 @@ const Navbar = () => {
                         <li><Link to='/services'>Services</Link></li>
                         <li><Link to={'/profile'}>My Profile</Link></li>
                         <li><Link to={'/add-service'}>Add Service</Link></li>
+                        <li><Link to={'/my-services'}>My Services</Link></li>
                     </ul>
                 </div>
 

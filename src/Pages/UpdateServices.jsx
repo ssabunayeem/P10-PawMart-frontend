@@ -1,14 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import { useNavigate, useParams } from 'react-router';
 import axios from 'axios';
 
-const AddService = () => {
+const UpdateServices = () => {
 
+    const { user } = useContext(AuthContext);
+    const { id } = useParams();
+    const [service, setService] = useState();
+    const [category, setCategory] = useState(service?.category);
+    const navigation = useNavigate();
 
-    const { user } = useContext(AuthContext)
+    useEffect(() => {
+        axios(`http://localhost:3000/services/${id}`)
+            .then(res => {
+                setService(res.data)
+                setCategory(res.data.category);
+            })
 
+    }, [id]);
 
-    const handleSubmit = (e) => {
+    console.log(service);
+
+    const handleUpdate = (e) => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -29,28 +43,30 @@ const AddService = () => {
             image,
             date,
             email,
+            createdAt: service?.createdAt
         }
 
-        // console.log(formData);
-
-        axios.post('http://localhost:3000/services', formData)
+        console.log(formData);
+        axios.put(`http://localhost:3000/update/${id}`, formData)
             .then(res => {
-                console.log(res);
+                console.log(res.data);
+                navigation('/my-services');
             })
+            .catch(err => console.log(err));
 
-
-    };
+    }
 
     return (
         <div className="max-w-xl mx-auto shadow-2xl p-6 md:my-5 rounded-lg">
-            <h2 className="text-2xl font-bold mb-4 text-center">Add New Service / Product</h2>
+            <h2 className="text-2xl font-bold mb-4 text-center">Update Service / Product</h2>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleUpdate} className="space-y-4">
 
                 {/* Product / Pet Name */}
                 <div>
                     <label className="font-semibold">Product / Pet Name</label>
                     <input
+                        defaultValue={service?.name}
                         type="text"
                         name="name"
                         required
@@ -66,7 +82,8 @@ const AddService = () => {
                     <select
                         name="category"
                         required
-
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
                         className="w-full border p-2 rounded mt-1"
                     >
                         <option value="">Select Category</option>
@@ -81,6 +98,7 @@ const AddService = () => {
                 <div>
                     <label className="font-semibold">Price</label>
                     <input
+                        defaultValue={service?.price}
                         type="number"
                         name="price"
                         required
@@ -93,6 +111,7 @@ const AddService = () => {
                 <div>
                     <label className="font-semibold">Location</label>
                     <input
+                        defaultValue={service?.location}
                         type="text"
                         name="location"
                         required
@@ -106,6 +125,7 @@ const AddService = () => {
                 <div>
                     <label className="font-semibold">Description</label>
                     <textarea
+                        defaultValue={service?.description}
                         name="description"
                         required
 
@@ -118,6 +138,7 @@ const AddService = () => {
                 <div>
                     <label className="font-semibold">Image URL</label>
                     <input
+                        defaultValue={service?.image}
                         type="url"
                         name="image"
                         required
@@ -131,6 +152,7 @@ const AddService = () => {
                 <div>
                     <label className="font-semibold">Pick-Up / Available Date</label>
                     <input
+                        defaultValue={service?.date}
                         type="date"
                         name="date"
                         required
@@ -155,11 +177,11 @@ const AddService = () => {
                     type="submit"
                     className="btn w-full bg-[#525CEB] text-white text-lg font-semibold py-5 rounded hover:btn-primary"
                 >
-                    Submit
+                    Update
                 </button>
             </form>
         </div>
     );
 };
 
-export default AddService;
+export default UpdateServices;
