@@ -42,7 +42,7 @@ const ServiceDetails = () => {
                     <p>Location: {service?.location}</p>
                     <p>Provider Email: {service?.email}</p>
                     <p>Price: {service?.price} $</p>
-                    <p>Date: {service?.date}</p>
+                    <p>Available Date: {service?.date}</p>
                 </div>
             </div>
         </div>

@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Link } from 'react-router';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const MyServices = () => {
 
@@ -15,6 +17,25 @@ const MyServices = () => {
     }, [user?.email])
 
     console.log(myServices);
+
+    const handleDelete = (id) => {
+        axios.delete(`http://localhost:3000/delete/${id}`)
+            .then(res => {
+                if (res.data.deletedCount > 0) {
+                    toast('Service deleted', {
+                        style: {
+                            background: "black",
+                            color: "red",
+                            fontSize: "16px",
+                            fontWeight: "bold",
+                        }
+                    });
+                    const remaining = myServices.filter(service => service._id !== id);
+                    setMyServices(remaining);
+                }
+            })
+            .catch(err => console.log(err));
+    }
 
     return (
         <div className='min-h-[60vh]'>
@@ -64,7 +85,8 @@ const MyServices = () => {
                                                 <Link to={`/update-services/${service?._id}`}
                                                     className="btn btn-primary btn-sm px-5">Edit
                                                 </Link>
-                                                <button className="btn btn-error btn-sm">Delete</button>
+
+                                                <button onClick={() => handleDelete(service?._id)} className="btn btn-error btn-sm">Delete</button>
 
                                             </div>
                                         </td>
@@ -79,7 +101,8 @@ const MyServices = () => {
                     </table>
                 </div>
             </div>
-        </div>
+
+        </div >
     );
 };
 

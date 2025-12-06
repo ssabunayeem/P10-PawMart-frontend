@@ -5,60 +5,96 @@ const Services = () => {
 
 
     const [services, setServices] = useState([]);
+    const [category, setCategory] = useState(['']);
 
     useEffect(() => {
-        fetch('http://localhost:3000/services')
+        fetch(`http://localhost:3000/services?category=${category}`)
             .then(res => res.json())
             .then(data => setServices(data))
             .catch(err => console.log(err))
-    }, [])
+    }, [category])
 
 
 
 
     return (
-        <div className='my-12 flex flex-col justify-center items-center'>
 
-            {/* all cards */}
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-5 lg:gap-15 my-5'>
-                {
-                    services.map(service =>
-                        <div key={service?.serviceId} className="card bg-[#dae3ee] w-96 shadow-xl">
-                            <figure>
-                                <img
-                                    className='w-full h-[300px] object-top-right object-cover'
-                                    src={service?.image}
-                                    alt="Shoes" />
-                            </figure>
+        <div>
 
-                            <div className="card-body">
+            <div className='flex flex-col lg:flex-row justify-between items-center max-w-7xl mx-auto my-10 '>
+                <h2 className='text-center text-xl md:text-4xl font-bold mt-5'>All Available Services & Products</h2>
 
-                                <h2 className="card-title font-bold">{service?.name}</h2>
-                                <p className='text-gray-500'>{service?.description}</p>
-                                <p className='font-bold'>Location: {service?.location}</p>
+                <div className='mt-5 w-64'>
+                    <select onChange={(e) => setCategory(e.target.value)} defaultValue="Select Category"
+                        className="select select-primary text-right bg-[#ffffff] outline-0!">
+                        <option disabled={true}>Select Category</option>
+                        <option value="">All</option>
+                        <option value="Pets">Pets</option>
+                        <option value="Food">Food</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Care Products">Care Products</option>
+                    </select>
 
-                                <div className='flex justify-evenly font-semibold my-2'>
-                                    <p>Price: {service?.price} $ </p>
-                                    <p className='text-right'>Date: {service?.date}</p>
-                                </div>
-
-
-                                <div className="card-actions justify-end">
-                                    <button className="btn btn-circle bg-[#525CEB] w-full text-white">
-                                        <Link to={`/details/${service?._id}`}>
-                                            View Details
-                                        </Link>
-                                    </button>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    )
-                }
+                </div>
             </div>
 
-        </div>
+
+
+            <div className='mb-12 flex flex-col justify-center items-center'>
+
+                {/* all cards */}
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-5 lg:gap-15 my-5'>
+                    {
+                        services.map(service =>
+                            <div key={service?.serviceId} className="card bg-[#dae3ee] w-96 shadow-xl">
+                                <figure>
+                                    <img
+                                        className='w-full h-[300px] object-top-right object-cover'
+                                        src={service?.image}
+                                        alt="Shoes" />
+                                </figure>
+
+                                <div className="card-body">
+
+                                    <h2 className="card-title font-bold">{service?.name}</h2>
+                                    <p className='text-gray-500'>{service?.description}</p>
+
+                                    <div className='flex  gap-15 font-semibold my-2'>
+
+                                        <div className='flex flex-col justify-evenly font-semibold space-y-2'>
+                                            <p className=''>Location: </p>
+                                            <p>Price: </p>
+                                            <p className=''> Categories: </p>
+                                        </div>
+
+                                        <div className='flex flex-col justify-evenly font-semibold space-y-2'>
+                                            <p className=''>{service?.location}</p>
+                                            <p>{service?.price} $ </p>
+                                            <p className=''>{service?.category}</p>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div className="card-actions justify-end">
+                                        <button className="btn btn-circle bg-[#525CEB] w-full text-white">
+                                            <Link to={`/details/${service?._id}`}>
+                                                View Details
+                                            </Link>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        )
+                    }
+                </div>
+            </div>
+
+
+
+        </div >
     );
 };
 

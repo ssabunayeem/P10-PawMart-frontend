@@ -14,3 +14,10 @@ h2 {
 .swiper-button-prev {
     color: #dcdce7 !important;
 }
+
+/* .select:focus,
+.select:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+} */
