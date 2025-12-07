@@ -12,6 +12,7 @@ import AddService from "../Pages/AddService";
 import MyServices from "../Pages/MyServices";
 import UpdateServices from "../Pages/UpdateServices";
 import MyOrders from "../Pages/MyOrders";
+import FilteredCategoryPage from "../Components/FilteredCategoryPage";
 
 const router = createBrowserRouter([
     {
@@ -61,7 +62,7 @@ const router = createBrowserRouter([
             {
                 path: "/my-orders",
                 element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
-            }
+            },
 
         ]
     },

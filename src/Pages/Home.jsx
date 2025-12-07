@@ -4,13 +4,15 @@ import PopularSection from '../Components/PopularSection';
 import MeetOurVets from '../Components/MeetOurVets';
 import WinterCareTips from '../Components/WinterCareTips';
 import ArrowAnimated from '../Components/ArrowAnimated';
+import CategorySection from '../Components/CategorySection';
 
 const Home = () => {
     return (
-        <div className="animate__animated animate__zoomIn">
+        <div>
             <title>Home</title>
             <Slider></Slider>
             <ArrowAnimated></ArrowAnimated>
+            <CategorySection></CategorySection>
             <PopularSection></PopularSection>
             <MeetOurVets></MeetOurVets>
             <WinterCareTips></WinterCareTips>
