@@ -45,7 +45,7 @@ const AddService = () => {
     };
 
     return (
-        <div className="max-w-3xl mx-auto shadow-2xl p-6 md:my-5 rounded-lg scale-95 hover:scale-100 transition-all duration-400 bg-[#f3e9fc] px-10">
+        <div className="max-w-3xl mx-auto shadow-2xl p-6 md:my-5 rounded-lg scale-95 hover:scale-100 transition-all duration-400 bg-[#f3e9fc] px-10 animate__animated animate__zoomIn">
             <h2 className="text-2xl font-bold mb-4 text-center">Add New Service / Product</h2>
 
             <form onSubmit={handleSubmit} className="space-y-4 ">

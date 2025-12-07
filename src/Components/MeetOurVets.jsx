@@ -5,7 +5,7 @@ import doc3 from '../assets/doctor-3.jpg'
 
 const MeetOurVets = () => {
     return (
-        <div className='my-24 py-12 flex flex-col justify-center items-center bg-[#f3e9fc]'>
+        <div className='my-24 py-12 flex flex-col justify-center items-center bg-[#f3e9fc] animate__animated animate__zoomIn'>
             <div>
                 <h2 className='text-2xl lg:text-4xl font-bold my-8 animate-pulse transition-all duration-400'>Meet Our Expert Vets</h2>
             </div>

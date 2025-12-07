@@ -35,9 +35,9 @@ const Profile = () => {
 
 
     return (
-        <div className='flex flex-col justify-center items-center space-y-2 min-h-[70vh] animate__animated animate__backInDown'>
+        <div className='flex flex-col justify-center items-center space-y-2 min-h-[70vh] animate__animated animate__zoomIn'>
 
-            <div className='flex flex-col justify-center items-center space-y-2 animate__animated animate__backInUp'>
+            <div className='flex flex-col justify-center items-center space-y-2'>
                 <div className="avatar">
                     <div className="w-24 rounded-full">
                         <img src={user?.photoURL} />
@@ -52,7 +52,7 @@ const Profile = () => {
             <div>
                 {
                     isOpen && (
-                        <div className="card  w-[350px] md:w-[650px] md:p-8 shrink-0 rounded-xl animate__animated animate__backInDown">
+                        <div className="card  w-[350px] md:w-[650px] md:p-8 shrink-0 rounded-xl animate__animated animate__zoomIn">
                             <div className="card-body">
                                 <form onSubmit={handleUpdate} className="fieldset">
 

@@ -29,9 +29,10 @@ const Navbar = () => {
                             className="menu menu-sm dropdown-content bg-[#6F00FF] text-white rounded-box z-50 mt-3 w-52 p-2 shadow">
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/services'>Services</Link></li>
-                            <li><Link to={'/profile'}>My Profile</Link></li>
+                            <li><Link to={'/profile'}>Profile</Link></li>
                             <li><Link to={'/add-service'}>Add Service</Link></li>
                             <li><Link to={'/my-services'}>My Services</Link></li>
+                            <li><Link to={'/my-orders'}>My Orders</Link></li>
                         </ul>
                     </div>
 
@@ -53,9 +54,10 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal text-lg px-1 space-x-5">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/services'>Services</Link></li>
-                        <li><Link to={'/profile'}>My Profile</Link></li>
+                        <li><Link to={'/profile'}>Profile</Link></li>
                         <li><Link to={'/add-service'}>Add Service</Link></li>
                         <li><Link to={'/my-services'}>My Services</Link></li>
+                        <li><Link to={'/my-orders'}>My Orders</Link></li>
                     </ul>
                 </div>
 

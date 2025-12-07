@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
+import axios from 'axios';
 
 const ServiceDetails = () => {
 
@@ -23,6 +24,43 @@ const ServiceDetails = () => {
 
     console.log("3000", service);
 
+
+    const handleOrder = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const productName = form.productName.value;
+        const price = parseFloat(form.price.value);
+        const buyerName = form.buyerName.value;
+        const buyerEmail = form.buyerEmail.value;
+        const quantity = parseInt(form.quantity.value);
+        const phone = form.phone.value;
+        const address = form.address.value;
+        const note = form.note.value;
+
+        const formData = {
+            productId: myId,
+            productName,
+            price,
+            buyerName,
+            buyerEmail,
+            quantity,
+            phone,
+            address,
+            note,
+            date: new Date(),
+        }
+
+
+        axios.post('http://localhost:3000/orders', formData)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+
+    }
 
 
     if (loading) {
@@ -62,29 +100,28 @@ const ServiceDetails = () => {
                                     {/* if there is a button in form, it will close the modal */}
                                     <button className="btn text-red-500 btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                 </form>
-                                <form className="fieldset  border-base-300 rounded-box w-full text-black">
+                                <form onSubmit={handleOrder} className="fieldset  border-base-300 rounded-box w-full text-black">
                                     <legend className="text-xl text-center">Order details</legend>
 
                                     <label className="fieldset-legend">Product Name</label>
-                                    <input readOnly defaultValue={service?.name} type="text" className="input w-full bg-gray-100" placeholder="Product Name" />
+                                    <input readOnly defaultValue={service?.name} type="text" name='productName' className="input w-full bg-gray-100" placeholder="Product Name" />
 
                                     <label className="fieldset-legend">Price</label>
-                                    <input readOnly defaultValue={service?.price} type="number" className="input w-full bg-gray-100" placeholder="Price" />
+                                    <input readOnly defaultValue={service?.price} type="number" name='price' className="input w-full bg-gray-100" placeholder="Price" />
 
                                     <label className="fieldset-legend">Buyer Information</label>
-                                    <input defaultValue={user?.displayName} type="text" className="input w-full" placeholder="Buyer Name" />
+                                    <input defaultValue={user?.displayName} type="text" name='buyerName' className="input w-full" placeholder="Buyer Name" />
 
-                                    <input readOnly defaultValue={user?.email} type="email" className="input w-full bg-gray-100" placeholder="Email" />
+                                    <input readOnly defaultValue={user?.email} type="email" name='buyerEmail' className="input w-full bg-gray-100" placeholder="Email" />
 
 
-                                    <input type="number" className="input w-full" placeholder="Product Quantity" />
+                                    <input required type="number" name='quantity' className="input w-full" placeholder="Product Quantity" />
 
-                                    <input type="text" className="input w-full" placeholder="Phone Number" />
+                                    <input required type="text" name='phone' className="input w-full" placeholder="Phone Number" />
 
-                                    <input type="text" className="input w-full" placeholder="Address" />
+                                    <input type="text" name='address' className="input w-full" placeholder="Address" />
 
-                                    <textarea type="text" className="textarea w-full" placeholder="Additional Message"></textarea>
-
+                                    <textarea type="text" name='note' className="textarea w-full" placeholder="Additional Message"></textarea>
                                     <button type='submit' className="btn btn-primary w-full mt-3">Order</button>
                                 </form>
                             </div>

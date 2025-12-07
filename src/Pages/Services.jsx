@@ -21,7 +21,7 @@ const Services = () => {
 
         <div>
 
-            <div className='flex flex-col lg:flex-row justify-between items-center max-w-7xl mx-auto my-10 '>
+            <div className='flex flex-col lg:flex-row justify-between items-center max-w-7xl mx-auto my-10 animate__animated animate__slideInDown'>
                 <h2 className='text-center text-xl md:text-4xl font-bold mt-5'>All Available Services & Products</h2>
 
                 <div className='mt-5 w-64'>
@@ -40,7 +40,7 @@ const Services = () => {
 
 
 
-            <div className='mb-12 flex flex-col justify-center items-center'>
+            <div className='mb-12 flex flex-col justify-center items-center animate__animated animate__zoomIn'>
 
                 {/* all cards */}
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-5 lg:gap-15 my-5'>

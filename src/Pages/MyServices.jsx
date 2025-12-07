@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+
 const MyServices = () => {
 
     const [myServices, setMyServices] = useState([]);
@@ -14,9 +15,7 @@ const MyServices = () => {
             .then(res => res.json())
             .then(data => setMyServices(data))
             .catch(err => console.log(err))
-    }, [user?.email])
-
-    console.log(myServices);
+    }, [user?.email]);
 
     const handleDelete = (id) => {
         axios.delete(`http://localhost:3000/delete/${id}`)
@@ -30,87 +29,136 @@ const MyServices = () => {
                             fontWeight: "bold",
                         }
                     });
-                    const remaining = myServices.filter(service => service._id !== id);
+
+                    const remaining = myServices.filter(s => s._id !== id);
                     setMyServices(remaining);
                 }
             })
             .catch(err => console.log(err));
-    }
+    };
 
     return (
-        <div className='min-h-[90vh]'>
+        <div className='min-h-[90vh] px-3 animate__animated animate__zoomIn'>
+            <h2 className='text-center text-xl md:text-4xl font-bold mt-5'>
+                All Services you have added
+            </h2>
 
-            <h2 className='text-center text-xl md:text-4xl font-bold mt-5'>All Services you have added</h2>
+            <div className='lg:max-w-[1200px] mx-auto py-10'>
 
-            <div className='flex lg:block justify-center items-center space-x-3 md:py-10 md:pb-20 md:px-5 lg:max-w-[1200px] mx-auto animate__animated animate__zoomInUp scale-90 md:scale-100 -mt-20 md:mt-0 '>
-                <div className="overflow-x-auto shadow-2xl rounded-xl">
-                    <table className=" table bg-[#f3e9fc]">
-                        {/* head */}
+                {/* ----------- Desktop Table ----------- */}
+                <div className="hidden md:block overflow-x-auto shadow-2xl rounded-xl">
+                    <table className="table bg-[#f3e9fc]">
                         <thead>
-                            <tr className='bg-[#3B0270] text-white md:pl-5'>
-                                <th className='md:pl-20'>Name</th>
-                                <th className='md:pl-15'>Email</th>
-                                <th className='lg:pl-12'>Price</th>
+                            <tr className='bg-[#3B0270] text-white'>
+                                <th className='pl-25'>Name</th>
+                                <th className='pl-15'>Email</th>
+                                <th className=''>Price</th>
+                                <th className=''>Actions</th>
                             </tr>
                         </thead>
+
                         <tbody>
-
-                            {/* row 1 */}
-                            {
-                                myServices.map(service =>
-
-                                    <tr key={service._id} className='transition-all duration-400 md:scale-90 hover:scale-100 hover:shadow-violet-400/50 hover:bg-[#e2cbf8] '>
-
-                                        <td className='text-center'>
-                                            <div className="flex flex-col md:flex-row items-center gap-3 ">
-                                                <div className="avatar">
-                                                    <div className="mask mask-squircle h-18 w-18">
-                                                        <img
-                                                            src={service?.image}
-                                                            alt="Avatar Tailwind CSS Component" />
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div className="font-bold">{service?.name}</div>
+                            {myServices.map(service => (
+                                <tr
+                                    key={service._id}
+                                    className=' hover:bg-[#e2cbf8] scale-90 hover:scale-100 transition-all duration-500'
+                                >
+                                    <td>
+                                        <div className="flex items-center gap-3">
+                                            <div className="avatar">
+                                                <div className="mask mask-squircle h-16 w-16">
+                                                    <img src={service.image} alt="service-img" />
                                                 </div>
                                             </div>
-                                        </td>
+                                            <div className="font-bold text-lg">{service.name}</div>
+                                        </div>
+                                    </td>
 
-                                        <td> {service?.email} </td>
+                                    <td>{service.email}</td>
 
-                                        <td >
-                                            <div className='flex justify-evenly items-center gap-25'>
-                                                <div className=' md:text-2xl text-amber-800'>
-                                                    {service?.price} $
-                                                </div>
+                                    <td>
+                                        <div className='flex justify-between items-center'>
+                                            <span className='text-xl text-amber-800 font-semibold'>
+                                                {service.price} $
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
 
-                                                <div>
-                                                    <div className='flex flex-col md:flex-row justify-evenly items-stretch gap-1 '>
-                                                        <Link to={`/update-services/${service?._id}`}
-                                                            className="btn btn-primary btn-sm px-5">Edit
-                                                        </Link>
+                                        <div className='flex gap-2'>
+                                            <Link
+                                                to={`/update-services/${service._id}`}
+                                                className="btn btn-primary btn-sm"
+                                            >
+                                                Edit
+                                            </Link>
 
-                                                        <button onClick={() => handleDelete(service?._id)} className="btn btn-error btn-sm">Delete</button>
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                )
-                            }
-
-
+                                            <button
+                                                onClick={() => handleDelete(service._id)}
+                                                className="btn btn-error btn-sm"
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
-
                     </table>
                 </div>
+
+                {/* ----------- Mobile Card View ----------- */}
+                <div className="md:hidden space-y-5 -mt-5">
+                    {myServices.map(service => (
+                        <div
+                            key={service._id}
+                            className="bg-[#f3e9fc] shadow-lg rounded-2xl overflow-hidden mb-5"
+                        >
+                            <div className="flex gap-2 w-full">
+
+                                {/* LEFT: Image (50%) */}
+                                <div className="w-2/5 h-32">
+                                    <img
+                                        src={service.image}
+                                        alt="service"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+
+                                {/* RIGHT: Content (50%) */}
+                                <div className="w-3/5 p-3 flex flex-col justify-center">
+                                    <p className="text-lg font-bold leading-tight">{service.name}</p>
+                                    <p className="text-xs text-gray-600 truncate">{service.email}</p>
+
+                                    <p className="mt-2 text-base font-semibold text-amber-800">
+                                        {service.price} $
+                                    </p>
+
+                                    <div className="flex gap-2 mt-3">
+                                        <Link
+                                            to={`/update-services/${service._id}`}
+                                            className="btn btn-primary btn-xs flex-1"
+                                        >
+                                            Edit
+                                        </Link>
+
+                                        <button
+                                            onClick={() => handleDelete(service._id)}
+                                            className="btn btn-error btn-xs flex-1"
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    ))}
+                </div>
+
             </div>
-
-
-        </div >
+        </div>
     );
 };
 

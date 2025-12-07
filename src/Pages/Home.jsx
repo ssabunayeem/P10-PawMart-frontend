@@ -7,7 +7,7 @@ import ArrowAnimated from '../Components/ArrowAnimated';
 
 const Home = () => {
     return (
-        <div>
+        <div className="animate__animated animate__zoomIn">
             <title>Home</title>
             <Slider></Slider>
             <ArrowAnimated></ArrowAnimated>

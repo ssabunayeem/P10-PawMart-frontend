@@ -32,7 +32,7 @@ const tips = [
 
 const WinterCareTips = () => {
     return (
-        <div className='my-12 flex flex-col justify-center items-center px-[5%] lg:px-[15%] mx-3.5 md:mx-auto'>
+        <div className='my-12 flex flex-col justify-center items-center px-[5%] lg:px-[15%] mx-3.5 md:mx-auto '>
 
             <h2 className="text-2xl lg:text-4xl font-bold my-8">Winter Care Tips</h2>
 
