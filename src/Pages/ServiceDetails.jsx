@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const ServiceDetails = () => {
 
@@ -10,6 +11,8 @@ const ServiceDetails = () => {
     const { myId } = useParams();
     const [loading, setLoading] = useState(true);
     const { user } = useContext(AuthContext);
+    const navigation = useNavigate();
+
 
 
     useEffect(() => {
@@ -54,10 +57,27 @@ const ServiceDetails = () => {
         axios.post('http://localhost:3000/orders', formData)
             .then(res => {
                 console.log(res);
+                navigation('/my-orders');
+                if (res.data.acknowledged) {
+                    Swal.fire({
+                        title: "Order Successful!",
+                        icon: "success",
+                        draggable: true
+                    });
+                    form.reset();
+                }
             })
             .catch(err => {
                 console.log(err);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                });
             });
+
+
+
 
 
     }

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
+import Swal from 'sweetalert2';
 
 const Profile = () => {
 
@@ -27,8 +28,18 @@ const Profile = () => {
             displayName: name, photoURL: photoUrl
         }).then(() => {
             setUser({ ...user, photoURL: photoUrl, displayName: name })
+            Swal.fire({
+                title: "Profile Updated Successfully!",
+                icon: "success",
+                draggable: true
+            });
         }).catch((error) => {
             console.log(error)
+            Swal.fire({
+                title: "Update Failed!",
+                icon: "error",
+                draggable: true
+            });
         });
 
     }

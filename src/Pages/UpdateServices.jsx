@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { useNavigate, useParams } from 'react-router';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const UpdateServices = () => {
 
@@ -51,8 +52,20 @@ const UpdateServices = () => {
             .then(res => {
                 console.log(res.data);
                 navigation('/my-services');
+                Swal.fire({
+                    title: "Order Successful!",
+                    icon: "success",
+                    draggable: true
+                });
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                });
+            });
 
     }
 

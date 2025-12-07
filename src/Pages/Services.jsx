@@ -1,40 +1,66 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 
 const Services = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
 
+    const getInitialCategory = () => {
+        const params = new URLSearchParams(window.location.search);
+        return params.get("category") || "";
+    };
 
     const [services, setServices] = useState([]);
-    const [category, setCategory] = useState(['']);
+    const [category, setCategory] = useState(getInitialCategory);
 
+    // Remove the effect that sets category from URL query
+
+    // Step 2: fetch services whenever category changes
     useEffect(() => {
-        fetch(`http://localhost:3000/services?category=${category}`)
+        let url = "http://localhost:3000/services";
+        if (category) url += `?category=${encodeURIComponent(category)}`;
+
+        fetch(url)
             .then(res => res.json())
             .then(data => setServices(data))
-            .catch(err => console.log(err))
-    }, [category])
+            .catch(err => console.log(err));
+    }, [category]);
 
+    // Step 3: update URL when select changes
+    const handleCategoryChange = (e) => {
+        const value = e.target.value;
+        setCategory(value);
 
-
+        // Update the URL query param
+        const params = new URLSearchParams(location.search);
+        if (value) {
+            params.set("category", value);
+        } else {
+            params.delete("category");
+        }
+        navigate({ pathname: "/services", search: params.toString() }, { replace: true });
+    };
 
     return (
 
-        <div>
 
+        <div>
             <div className='flex flex-col lg:flex-row justify-between items-center max-w-7xl mx-auto my-10 animate__animated animate__slideInDown'>
                 <h2 className='text-center text-xl md:text-4xl font-bold mt-5'>All Available Services & Products</h2>
 
+                {/* Select Box */}
                 <div className='mt-5 w-64'>
-                    <select onChange={(e) => setCategory(e.target.value)} defaultValue="Select Category"
-                        className="select select-primary text-right bg-[#ffffff] outline-0!">
-                        <option disabled={true}>Select Category</option>
-                        <option value="">All</option>
+                    <select
+                        value={category}
+                        onChange={handleCategoryChange}
+                        className="select select-primary bg-white"
+                    >
+                        <option value="">All Categories</option>
                         <option value="Pets">Pets</option>
                         <option value="Food">Food</option>
                         <option value="Accessories">Accessories</option>
                         <option value="Care Products">Care Products</option>
                     </select>
-
                 </div>
             </div>
 
@@ -92,7 +118,7 @@ const Services = () => {
                 </div>
             </div>
 
-        </div >
+        </div>
     );
 };
 
