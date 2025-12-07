@@ -27,7 +27,7 @@ const PopularSection = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-5 lg:gap-15 my-5'>
                 {
                     services.slice(0, 6).map(service =>
-                        <div key={service?.serviceId} className="card bg-[#dae3ee] w-96 shadow-xl">
+                        <div key={service?.serviceId} className="card bg-[#f3e9fc] w-96 shadow-xl hover:scale-105 transition-all duration-400">
                             <figure>
                                 <img
                                     className='w-full h-[300px] object-top-right object-cover'

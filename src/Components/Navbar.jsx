@@ -18,7 +18,7 @@ const Navbar = () => {
     return (
 
         <div className='z-40'>
-            <div className="navbar bg-[#525CEB] text-white shadow-xl">
+            <div className="navbar bg-[#6F00FF] text-white shadow-xl">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -26,7 +26,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex="-1"
-                            className="menu menu-sm dropdown-content bg-[#525CEB] text-white rounded-box z-50 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-[#6F00FF] text-white rounded-box z-50 mt-3 w-52 p-2 shadow">
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/services'>Services</Link></li>
                             <li><Link to={'/profile'}>My Profile</Link></li>
@@ -35,11 +35,11 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <div className='bg-[#1e6069ad] rounded-xl hover:scale-105 transition-all duration-300 ease-in-out'>
+                    <div className='bg-[#3B0270] rounded-xl hover:scale-105 transition-all duration-300 ease-in-out'>
                         <div className='bg-linear-to-r from-cyan-300 via-white to-cyan-300 bg-clip-text 
-                        text-transparent shadow-2xl rounded-2xl'>
+                        text-transparent shadow-2xl'>
 
-                            <Link to={'/'} className="btn btn-ghost btn-block hover:btn-primary text-xl md:text-3xl font-bold py-5 px-7 md:px-2 rounded-xl">
+                            <Link to={'/'} className="btn btn-ghost btn-block text-xl md:text-3xl font-bold py-5 px-7 md:px-2 rounded-xl">
                                 <img className='w-6 md:w-8 rounded-full -rotate-35' src={paw} alt="" />
                                 PawMart
                             </Link>

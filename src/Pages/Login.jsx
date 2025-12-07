@@ -62,7 +62,7 @@ const Login = () => {
         <div className='flex flex-col  gap-5 justify-center items-center p-7'>
 
 
-            <div className='bg-[#525CEB] text-center shadow-2xl p-5 md:p-15 rounded-full'>
+            <div className='bg-[#6F00FF] text-center shadow-2xl p-5 md:p-15 rounded-full'>
 
                 <div className='bg-linear-to-r from-cyan-300 via-white to-sky-400 bg-clip-text text-transparent'>
                     <a className="text-2xl lg:text-4xl font-bold">WinterPetCare</a>
@@ -76,7 +76,7 @@ const Login = () => {
 
             </div>
 
-            <div className="card bg-[#dae3ee] w-[350px] md:w-[650px] md:p-8 shrink-0 shadow-2xl rounded-4xl">
+            <div className="card bg-[#f3e9fc] w-[350px] md:w-[650px] md:p-8 shrink-0 shadow-2xl rounded-4xl">
                 <div className="card-body">
                     <form onSubmit={handleSubmit} className="fieldset">
 
@@ -105,7 +105,7 @@ const Login = () => {
 
                         <div><button onClick={handleForget} className="link link-hover text-lg text-red-700">Forgot password?</button></div>
 
-                        <button className="btn btn-neutral rounded-xl bg-[#525CEB] py-6 text-lg">Login</button>
+                        <button className="btn btn-neutral rounded-xl bg-[#6F00FF] py-6 text-lg">Login</button>
 
 
                         <p className='text-base mt-2'>Sign in With... </p>

@@ -46,7 +46,7 @@ const Services = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-5 lg:gap-15 my-5'>
                     {
                         services.map(service =>
-                            <div key={service?.serviceId} className="card bg-[#dae3ee] w-96 shadow-xl">
+                            <div key={service?.serviceId} className="card bg-[#f3e9fc] w-96 shadow-xl transition-all duration-400 hover:scale-105">
                                 <figure>
                                     <img
                                         className='w-full h-[300px] object-top-right object-cover'
@@ -77,7 +77,7 @@ const Services = () => {
 
 
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-circle bg-[#525CEB] w-full text-white">
+                                        <button className="btn btn-circle bg-[#6F00FF] w-full text-white">
                                             <Link to={`/details/${service?._id}`}>
                                                 View Details
                                             </Link>

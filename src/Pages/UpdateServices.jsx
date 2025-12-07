@@ -57,7 +57,7 @@ const UpdateServices = () => {
     }
 
     return (
-        <div className="max-w-xl mx-auto shadow-2xl p-6 md:my-5 rounded-lg">
+        <div className="max-w-2xl mx-auto bg-[#f3e9fc] shadow-2xl p-6 md:my-5 rounded-lg animate__animated animate__zoomInUp hover:scale-105 transition-all duration-400 px-10">
             <h2 className="text-2xl font-bold mb-4 text-center">Update Service / Product</h2>
 
             <form onSubmit={handleUpdate} className="space-y-4">

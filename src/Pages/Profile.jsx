@@ -46,7 +46,7 @@ const Profile = () => {
 
                 <p className='font-bold text-2xl m-0'>{user?.displayName}</p>
                 <p className='text-xl'>{user?.email}</p>
-                <button onClick={handleOpenForm} className=" btn btn-primary bg-[#525CEB] text-xl">Update Profile</button>
+                <button onClick={handleOpenForm} className=" btn btn-primary bg-[#6F00FF] text-xl">Update Profile</button>
 
             </div>
             <div>
@@ -62,7 +62,7 @@ const Profile = () => {
                                     <label className="label text-lg">PhotoUrl</label>
                                     <input defaultValue={user?.photoURL} name='photoUrl' type="text" className="input w-full py-6 text-lg rounded-full" placeholder="Photo Url" />
 
-                                    <button className="btn btn-neutral rounded-2xl bg-[#525CEB] mt-6 py-6 text-lg">Update Now</button>
+                                    <button className="btn btn-neutral rounded-2xl bg-[#6F00FF] mt-6 py-6 text-lg">Update Now</button>
 
 
                                 </form>

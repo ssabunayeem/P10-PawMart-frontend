@@ -7,6 +7,8 @@ import router from './Router/Router.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import 'animate.css';
 import { ToastContainer } from 'react-toastify';
+import 'animate.css';
+
 
 createRoot(document.getElementById('root')).render(
 

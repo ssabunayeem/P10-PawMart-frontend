@@ -15,7 +15,7 @@ const ArrowAnimated = () => {
 
             <div
                 onClick={handleScroll}
-                className=" flex flex-col justify-center items-center bg-[#525CEB] h-[100px] w-[100px] rounded-full absolute z-50 animate-bounce">
+                className=" flex flex-col justify-center items-center bg-[#6F00FF] h-[100px] w-[100px] rounded-full absolute z-50 animate-bounce">
                 <FaArrowDown className='text-7xl text-white' />
             </div>
         </div>

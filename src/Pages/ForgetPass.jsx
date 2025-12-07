@@ -25,7 +25,7 @@ const ForgetPass = () => {
     }
     return (
         <div className=" flex justify-center items-center  py-20">
-            <div className='rounded-xl  lg:rounded-4xl p-2 lg:p-10 bg-[#dae3ee]'>
+            <div className='rounded-xl  lg:rounded-4xl p-2 lg:p-10 bg-[#f3e9fc]'>
                 <form onSubmit={handleSubmit} className='fieldset'>
                     <label className="label text-lg">Email</label>
                     <input defaultValue={email} name='email' type="email" className="input w-[350px]  lg:w-[400px] py-6 text-lg rounded-full" placeholder="Email" />

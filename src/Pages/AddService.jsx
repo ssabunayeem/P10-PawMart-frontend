@@ -45,10 +45,10 @@ const AddService = () => {
     };
 
     return (
-        <div className="max-w-xl mx-auto shadow-2xl p-6 md:my-5 rounded-lg">
+        <div className="max-w-3xl mx-auto shadow-2xl p-6 md:my-5 rounded-lg scale-95 hover:scale-100 transition-all duration-400 bg-[#f3e9fc] px-10">
             <h2 className="text-2xl font-bold mb-4 text-center">Add New Service / Product</h2>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 ">
 
                 {/* Product / Pet Name */}
                 <div>
@@ -156,7 +156,7 @@ const AddService = () => {
 
                 <button
                     type="submit"
-                    className="btn w-full bg-[#525CEB] text-white text-lg font-semibold py-5 rounded hover:btn-primary"
+                    className="btn w-full bg-[#6F00FF] text-white text-lg font-semibold py-5 rounded hover:btn-primary"
                 >
                     Submit
                 </button>
