@@ -5,9 +5,9 @@ import doc3 from '../assets/doctor-3.jpg'
 
 const MeetOurVets = () => {
     return (
-        <div className='my-24 py-12 flex flex-col justify-center items-center bg-[#f3e9fc] animate__animated animate__zoomIn'>
+        <div className='dark:text-blue-700!my-24 py-12 flex flex-col justify-center items-center  bg-[#f3e9fc] animate__animated animate__zoomIn'>
             <div>
-                <h2 className='text-2xl lg:text-4xl font-bold my-8 animate-pulse transition-all duration-400'>Meet Our Expert Vets</h2>
+                <h2 className='dark:text-white! text-2xl lg:text-4xl font-bold my-8 animate-pulse transition-all duration-400'>Meet Our Expert Vets</h2>
             </div>
 
             {/* all cards */}
@@ -22,9 +22,9 @@ const MeetOurVets = () => {
                             alt="Shoes" />
                     </figure>
 
-                    <div className="card-body">
+                    <div className="card-body text-blue-700! dark:text-blue-700!">
 
-                        <h2 className="card-title text-blue-700">Dr. Alicia Snow</h2>
+                        <h2 className="card-title text-blue-700! dark:text-blue-700!">Dr. Alicia Snow</h2>
                         <h3 className='font-semibold'>Winter Dermatology & Paw Care</h3>
 
                         <h4>8 Year Exp.</h4>
@@ -43,9 +43,9 @@ const MeetOurVets = () => {
                             alt="Shoes" />
                     </figure>
 
-                    <div className="card-body">
+                    <div className="card-body  dark:text-blue-700!">
 
-                        <h2 className="card-title text-blue-700">Dr. Kevin Frost</h2>
+                        <h2 className="card-title text-blue-700! dark:text-blue-700!">Dr. Kevin Frost</h2>
                         <h3 className='font-semibold'>Cold Weather Nutrition</h3>
 
                         <h4>6 Year Exp.</h4>
@@ -56,7 +56,7 @@ const MeetOurVets = () => {
                 </div>
 
                 {/* doctor 3 */}
-                <div className="card bg-white w-96 shadow-xl">
+                <div className="card bg-white w-96 shadow-xl dark:text-blue-700!">
                     <figure>
                         <img
                             className='w-full h-[200px]  object-cover'
@@ -66,7 +66,7 @@ const MeetOurVets = () => {
 
                     <div className="card-body">
 
-                        <h2 className="card-title text-blue-700">Dr. Scarlett Pine</h2>
+                        <h2 className="card-title text-blue-700! dark:text-blue-700!">Dr. Scarlett Pine</h2>
                         <h3 className='font-semibold'>Pet Allergies & dry Skin</h3>
 
                         <h4>5 Year Exp.</h4>

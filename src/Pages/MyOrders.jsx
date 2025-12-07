@@ -24,7 +24,7 @@ const MyOrders = () => {
 
             {/* ---------- Desktop Table (lg screens) ---------- */}
             <div className="hidden md:block overflow-x-auto ">
-                <table className="table w-full bg-[#f3e9fc] ">
+                <table className="table w-full bg-[#f3e9fc]  ">
                     <thead className="bg-[#3B0270] text-lg text-white">
                         <tr>
                             <th>#</th>

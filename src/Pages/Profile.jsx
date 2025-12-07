@@ -55,7 +55,7 @@ const Profile = () => {
                     </div>
                 </div>
 
-                <p className='font-bold text-2xl m-0'>{user?.displayName}</p>
+                <p className='font-bold text-2xl m-0  '>{user?.displayName}</p>
                 <p className='text-xl'>{user?.email}</p>
                 <button onClick={handleOpenForm} className=" btn btn-primary bg-[#6F00FF] text-xl">Update Profile</button>
 

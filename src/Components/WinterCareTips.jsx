@@ -41,8 +41,8 @@ const WinterCareTips = () => {
                 {tips.map((tip) => (
                     <div
                         key={tip.id}
-                        className="border border-gray-200 rounded-lg p-8 gap-4 items-start flex-1  bg-[#f3e9fc] 
-                        hover:scale-110 transition-all duration-400">
+                        className="border border-gray-200 rounded-lg p-8 gap-4 items-start flex-1  
+                          bg-[#f3e9fc] hover:scale-110 transition-all duration-400">
                         <div className="shrink-0">
 
                             <div className="text-5xl">
@@ -55,7 +55,7 @@ const WinterCareTips = () => {
                         </div>
 
                         <div className="">
-                            <h3 className="text-lg font-medium my-5">{tip.title}</h3>
+                            <h3 className="text-lg font-medium my-5  ">{tip.title}</h3>
                             <p className="text-sm text-gray-600 leading-relaxed">{tip.description}</p>
                         </div>
                     </div>

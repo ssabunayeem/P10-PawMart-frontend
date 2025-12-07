@@ -3,13 +3,23 @@
 
 
 body {
-    background: #FFF1F1;
     margin: 0;
     padding: 0;
 }
 
 h2 {
     color: #3B0270;
+}
+
+[data-theme="dark"] h2 {
+    color: #ffffff;
+    /* dark mode হ‌লে h2 white হবে */
+}
+
+
+[data-theme="dark"] p {
+    color: white;
+    /* dark mode হ‌লে h2 white হবে */
 }
 
 .swiper-button-next,

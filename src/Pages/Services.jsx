@@ -53,7 +53,7 @@ const Services = () => {
                     <select
                         value={category}
                         onChange={handleCategoryChange}
-                        className="select select-primary bg-white"
+                        className="select select-primary bg-white "
                     >
                         <option value="">All Categories</option>
                         <option value="Pets">Pets</option>
@@ -72,7 +72,7 @@ const Services = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-5 lg:gap-15 my-5'>
                     {
                         services.map(service =>
-                            <div key={service?.serviceId} className="card bg-[#f3e9fc] w-96 shadow-xl transition-all duration-400 hover:scale-105">
+                            <div key={service?.serviceId} className="card bg-[#f3e9fc]  w-96 shadow-xl transition-all duration-400 hover:scale-105">
                                 <figure>
                                     <img
                                         className='w-full h-[300px] object-top-right object-cover'
@@ -82,7 +82,7 @@ const Services = () => {
 
                                 <div className="card-body">
 
-                                    <h2 className="card-title font-bold">{service?.name}</h2>
+                                    <h2 className="card-title font-bold text-blue-700!">{service?.name}</h2>
                                     <p className='text-gray-500'>{service?.description}</p>
 
                                     <div className='flex  gap-15 font-semibold my-2'>

@@ -41,7 +41,7 @@ const CategorySection = () => {
             {/* Heading */}
             <div className="text-center mb-10">
                 <h2 className="text-4xl font-bold">Shop by Category</h2>
-                <p className="text-gray-600 mt-2">
+                <p className="text-gray-600 mt-2 dark:text-blue-100!">
                     Find everything your pet needs in one place.
                 </p>
             </div>

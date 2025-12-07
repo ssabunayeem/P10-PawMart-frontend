@@ -62,7 +62,7 @@ const MyServices = () => {
 
                 {/* ----------- Desktop Table ----------- */}
                 <div className="hidden md:block overflow-x-auto shadow-2xl rounded-xl">
-                    <table className="table bg-[#f3e9fc]">
+                    <table className="table bg-[#f3e9fc] ">
                         <thead>
                             <tr className='bg-[#3B0270] text-white'>
                                 <th className='pl-25'>Name</th>
