@@ -6,7 +6,7 @@ const FilteredCategoryPage = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/services?category=${encodeURIComponent(categoryName)}`)
+        fetch(`https://p10-paw-mart-backend.vercel.app/services?category=${encodeURIComponent(categoryName)}`)
             .then(res => res.json())
             .then(data => setServices(data))
             .catch(err => console.log(err));

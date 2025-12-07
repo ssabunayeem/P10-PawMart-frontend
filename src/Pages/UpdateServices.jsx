@@ -13,7 +13,7 @@ const UpdateServices = () => {
     const navigation = useNavigate();
 
     useEffect(() => {
-        axios(`http://localhost:3000/services/${id}`)
+        axios(`https://p10-paw-mart-backend.vercel.app/services/${id}`)
             .then(res => {
                 setService(res.data)
                 setCategory(res.data.category);
@@ -48,7 +48,7 @@ const UpdateServices = () => {
         }
 
         console.log(formData);
-        axios.put(`http://localhost:3000/update/${id}`, formData)
+        axios.put(`https://p10-paw-mart-backend.vercel.app/update/${id}`, formData)
             .then(res => {
                 console.log(res.data);
                 navigation('/my-services');

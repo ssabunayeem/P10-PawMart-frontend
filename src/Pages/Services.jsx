@@ -17,7 +17,7 @@ const Services = () => {
 
     // Step 2: fetch services whenever category changes
     useEffect(() => {
-        let url = "http://localhost:3000/services";
+        let url = "https://p10-paw-mart-backend.vercel.app/services";
         if (category) url += `?category=${encodeURIComponent(category)}`;
 
         fetch(url)

@@ -8,7 +8,7 @@ const PopularSection = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        axios('http://localhost:3000/services')
+        axios('https://p10-paw-mart-backend.vercel.app/services')
             .then(res => setServices(res.data))
             .catch(err => console.log(err))
     }, [])

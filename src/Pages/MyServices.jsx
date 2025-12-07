@@ -11,7 +11,7 @@ const MyServices = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/my-services?email=${user?.email}`)
+        fetch(`https://p10-paw-mart-backend.vercel.app/my-services?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyServices(data))
             .catch(err => console.log(err))
@@ -30,7 +30,7 @@ const MyServices = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`http://localhost:3000/delete/${id}`)
+                axios.delete(`https://p10-paw-mart-backend.vercel.app/delete/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
 

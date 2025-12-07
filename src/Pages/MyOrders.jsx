@@ -6,7 +6,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:3000/orders`)
+            .get(`https://p10-paw-mart-backend.vercel.app/orders`)
             .then((res) => {
                 setOrders(res.data);
             })
