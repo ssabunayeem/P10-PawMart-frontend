@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import axios from 'axios';
-import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const AddService = () => {
 
 
     const { user } = useContext(AuthContext)
-    const navigation = useNavigate();
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -38,8 +36,23 @@ const AddService = () => {
         axios.post('http://localhost:3000/services', formData)
             .then(res => {
                 console.log(res);
-                navigation('/my-services');
+                if (res.data.acknowledged) {
+                    Swal.fire({
+                        title: "Service Added!",
+                        icon: "success",
+                        draggable: true
+                    });
+                    form.reset();
+                }
             })
+            .catch(err => {
+                console.log(err);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                });
+            });
 
 
     };

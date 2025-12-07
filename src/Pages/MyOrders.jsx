@@ -19,7 +19,7 @@ const MyOrders = () => {
 
 
     return (
-        <div className="max-w-5xl mx-auto p-4 animate__animated animate__zoomIn">
+        <div className="min-h-[70vh] max-w-7xl mx-auto p-2 my-5 animate__animated animate__zoomIn">
             <h1 className="text-3xl font-bold mb-5 text-center">My Orders</h1>
 
             {/* ---------- Desktop Table (lg screens) ---------- */}
@@ -32,6 +32,7 @@ const MyOrders = () => {
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Phone</th>
+                            <th>Email</th>
                             <th>Address</th>
                             <th>Order Date</th>
                         </tr>
@@ -39,14 +40,22 @@ const MyOrders = () => {
 
                     <tbody>
                         {orders.map((order, index) => (
-                            <tr key={order._id} className="hover">
+                            <tr key={order._id} className="hover text-xl">
                                 <td>{index + 1}</td>
                                 <td>{order?.productName}</td>
                                 <td>${order?.price}</td>
                                 <td>{order?.quantity}</td>
                                 <td>{order?.phone}</td>
+                                <td>{order?.buyerEmail}</td>
                                 <td>{order?.address}</td>
-                                <td>{new Date(order.date).toLocaleString()}</td>
+                                <td>{new Date(order.date).toLocaleString("en-US", {
+                                    year: "numeric",
+                                    month: "short",
+                                    day: "numeric",
+                                    hour: "numeric",
+                                    minute: "numeric",
+                                    hour12: true,
+                                })}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -63,6 +72,7 @@ const MyOrders = () => {
                             <p><span className="font-semibold">Price:</span> ${order.price}</p>
                             <p><span className="font-semibold">Quantity:</span> {order.quantity}</p>
                             <p><span className="font-semibold">Phone:</span> {order.phone}</p>
+                            <p><span className="font-semibold">Email:</span> {order.buyerEmail}</p>
                             <p><span className="font-semibold">Address:</span> {order.address}</p>
                             <p><span className="font-semibold">Date:</span> {new Date(order.date).toLocaleDateString()}</p>
                         </div>

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Link } from 'react-router';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 
 const MyServices = () => {
@@ -18,23 +18,38 @@ const MyServices = () => {
     }, [user?.email]);
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:3000/delete/${id}`)
-            .then(res => {
-                if (res.data.deletedCount > 0) {
-                    toast('Service deleted', {
-                        style: {
-                            background: "black",
-                            color: "red",
-                            fontSize: "16px",
-                            fontWeight: "bold",
-                        }
-                    });
 
-                    const remaining = myServices.filter(s => s._id !== id);
-                    setMyServices(remaining);
-                }
-            })
-            .catch(err => console.log(err));
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axios.delete(`http://localhost:3000/delete/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+
+                            const remaining = myServices.filter(s => s._id !== id);
+                            setMyServices(remaining);
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+                    .catch(err => console.log(err));
+
+
+            }
+        });
+
+
     };
 
     return (
