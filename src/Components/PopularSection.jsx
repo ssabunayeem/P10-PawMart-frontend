@@ -35,19 +35,31 @@ const PopularSection = () => {
                                     alt="Shoes" />
                             </figure>
 
+
                             <div className="card-body">
 
-                                <h2 className="card-title font-bold">{service?.name}</h2>
+                                <h2 className="card-title font-bold text-blue-700!">{service?.name}</h2>
                                 <p className='text-gray-500'>{service?.description}</p>
-                                <p className='font-bold'>Location: {service?.location}</p>
 
-                                <div className='flex justify-evenly font-semibold my-2'>
-                                    <p>Price: {service?.price} $ </p>
-                                    <p className='text-right'>Date: {service?.date}</p>
+                                <div className='flex  gap-15 font-semibold my-2'>
+
+                                    <div className='flex flex-col justify-evenly font-semibold space-y-2'>
+                                        <p className=''>Location: </p>
+                                        <p>Price: </p>
+                                        <p className=''> Categories: </p>
+                                    </div>
+
+                                    <div className='flex flex-col justify-evenly font-semibold space-y-2'>
+                                        <p className=''>{service?.location}</p>
+                                        <p>{service?.price} $ </p>
+                                        <p className=''>{service?.category}</p>
+                                    </div>
+
                                 </div>
 
+
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-circle bg-[#525CEB] w-full text-white">
+                                    <button className="btn btn-circle bg-[#6F00FF] w-full text-white">
                                         <Link to={`/details/${service?._id}`}>
                                             View Details
                                         </Link>
@@ -55,6 +67,8 @@ const PopularSection = () => {
                                 </div>
 
                             </div>
+
+
                         </div>
 
                     )
