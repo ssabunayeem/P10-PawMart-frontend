@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import { Tooltip } from "react-tooltip";
+import 'react-tooltip/dist/react-tooltip.css';
 
 import img1 from "../assets/cat1.jpg";
 import img2 from "../assets/cat2.jpg";
@@ -12,24 +14,28 @@ const categories = [
         icon: "🐶",
         image: img1,
         category: "Pets",
+        tooltip: "Find adorable pets ready for adoption!"
     },
     {
         name: "Pet Food",
         icon: "🍖",
         image: img2,
         category: "Food",
+        tooltip: "High-quality food for your furry friends."
     },
     {
         name: "Accessories",
         icon: "🧸",
         image: img3,
         category: "Accessories",
+        tooltip: "Stylish accessories for your pets."
     },
     {
         name: "Pet Care",
         icon: "💊",
         image: img4,
         category: "Care Products",
+        tooltip: "All the care products your pet needs."
     },
 ];
 
@@ -41,9 +47,6 @@ const CategorySection = () => {
             {/* Heading */}
             <div className="text-center mb-10">
                 <h2 className="text-4xl font-bold">Shop by Category</h2>
-                <p className="text-gray-600 mt-2 dark:text-blue-100!">
-                    Find everything your pet needs in one place.
-                </p>
             </div>
 
             {/* Category Grid */}
@@ -54,13 +57,15 @@ const CategorySection = () => {
                         onClick={() =>
                             navigate(`/services?category=${encodeURIComponent(cat.category)}`)
                         }
+                        data-tooltip-id="category-tooltip"        // same tooltip id for all
+                        data-tooltip-content={cat.tooltip}        // different content
                         className="relative rounded-xl overflow-hidden cursor-pointer group text-white"
                     >
                         {/* Background Image */}
                         <img
                             src={cat?.image}
                             alt={cat?.name}
-                            className="w-full h-[220px]  object-cover group-hover:scale-110 transition-all duration-500"
+                            className="w-full h-[220px] object-cover group-hover:scale-110 transition-all duration-500"
                         />
 
                         {/* Dark Overlay */}
@@ -75,6 +80,14 @@ const CategorySection = () => {
                     </div>
                 ))}
             </div>
+
+            {/* Global Tooltip */}
+            <Tooltip
+                id="category-tooltip"
+                place="top"
+                effect="solid"
+                className="bg-blue-600 text-white px-3 py-1 rounded shadow-lg"
+            />
         </div>
     );
 };

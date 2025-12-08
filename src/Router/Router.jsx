@@ -13,6 +13,7 @@ import MyServices from "../Pages/MyServices";
 import UpdateServices from "../Pages/UpdateServices";
 import MyOrders from "../Pages/MyOrders";
 import FilteredCategoryPage from "../Components/FilteredCategoryPage";
+import NotFound from "../Pages/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -66,5 +67,11 @@ const router = createBrowserRouter([
 
         ]
     },
+
+    {
+        path: "*", // catch all unknown routes
+        element: <NotFound />, // 404 page without navbar/footer
+    },
+
 ]);
 export default router;
