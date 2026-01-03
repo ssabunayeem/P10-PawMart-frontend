@@ -5,7 +5,7 @@ PawMart is a community-driven platform where pet owners, breeders, and shops can
 
 ## 🚀 Live Demo
 
-**Surge Link:** *http://p10-winter-pet-care.surge.sh/*
+**Surge Link:** *https://p10-winter-pet-care.netlify.app/*
 
 
 ---
@@ -103,7 +103,7 @@ WarmPaws/
 │   │   ├── Services.jsx
 │   │   ├── Tips.jsx
 │   ├── data/
-│   │   └── services.json
+│   │   └── data.json
 │   ├── App.jsx
 │   └── main.jsx
 ├── package.json
