@@ -5,7 +5,7 @@ PawMart is a community-driven platform where pet owners, breeders, and shops can
 
 ## 🚀 Live Demo
 
-**Surge Link:** *https://p10-winter-pet-care.netlify.app/*
+**netlify Link:** *https://p10-winter-pet-care.netlify.app/*
 
 
 ---
